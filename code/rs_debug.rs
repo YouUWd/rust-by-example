@@ -9,17 +9,18 @@ struct Deep(Structure);
 #[derive(Debug)]
 struct Person<'a> {
     name: &'a str,
-    age: u8
+    age: u8,
 }
 
 fn main() {
-
     // Printing with `{:?}` is similar to with `{}`.
     println!("{:?} months in a year.", 12);
-    println!("{1:?} {0:?} is the {actor:?} name.",
-             "Slater",
-             "Christian",
-             actor="actor's");
+    println!(
+        "{1:?} {0:?} is the {actor:?} name.",
+        "Slater",
+        "Christian",
+        actor = "actor's"
+    );
 
     // `Structure` is printable!
     println!("Now {:?} will print!", Structure(3));
@@ -33,6 +34,4 @@ fn main() {
     let peter = Person { name, age };
     // Pretty print
     println!("{:#?}", peter);
-
-
 }
